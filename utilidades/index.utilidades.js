@@ -32,6 +32,46 @@ export async function WRITEJSONFILE(data) {
     console.log(err)
   }
 }
+// Agregar un nuevo producto
+export async function agregarProducto(data) {
+  try {
+    const response = await fetch(`${FAKESTOREAPI}products`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+
+    if (!response.ok) {
+      throw new Error(`Error al agregar producto: ${response.status}`);
+    }
+
+    const productoAgregado = await response.json();
+    return productoAgregado;
+  } catch (error) {
+    console.error('Error inesperado al agregar producto:', error.message);
+  }
+}
+
+// Buscar producto por ID
+export async function obtenerProductoPorId(id) {
+  try {
+    const response = await fetch(`${FAKESTOREAPI}products/${id}`);
+
+    if (response.status === 404) {
+      console.log(`Producto con ID ${id} no existe.`);
+      return null;
+    }
+
+    if (!response.ok) {
+      throw new Error(`Error ${response.status}`);
+    }
+
+    const producto = await response.json();
+    return producto;
+  } catch (error) {
+    console.error('Error al obtener producto:', error.message);
+  }
+}
 
 // Eliminar un producto
 export async function DELETEPRODUCTBYID(id) {
