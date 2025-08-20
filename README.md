@@ -3,8 +3,12 @@
 Este proyecto corresponde al **Trabajo Práctico N°2** de la materia **Programación III** (Tecnicatura Universitaria en Desarrollo Web – UNER).  
 El objetivo es aplicar el uso de la **API Fetch** y el manejo de archivos con **FileSystem** en **Node.js**, utilizando como recurso la API pública [FakeStoreAPI](https://fakestoreapi.com/).
 
-#Integrantes: 
-
+## Integrantes del Grupo K
+- Sofia Guardia
+- Mariano Jimenez
+- Macarena Schefer
+- Luciano Cirvini
+  
 ## 🛠️ Funcionalidades implementadas
 - Recuperar todos los productos de la API (**GET**).
 - Recuperar un producto por `id` (**GET**).
