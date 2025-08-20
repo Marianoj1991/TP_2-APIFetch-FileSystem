@@ -32,3 +32,22 @@ export async function WRITEJSONFILE(data) {
     console.log(err)
   }
 }
+
+// Eliminar un producto
+export async function DELETEPRODUCTBYID(id) {
+  const resp = await fetch(`${FAKESTOREAPI}products/${id}`, {
+    method: 'DELETE'
+  })
+}
+
+// Modificar los datos de un producto
+export async function UPDATEPRODUCTBYID(id, data) {
+  const resp = await fetch(`${FAKESTOREAPI}products/${id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+  return resp.json()
+}
