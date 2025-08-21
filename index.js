@@ -1,5 +1,5 @@
 import { GETALLPRODUCTS, GETPRODUCTBYID, WRITEJSONFILE, UPDATEPRODUCTBYID, DELETEPRODUCTBYID, agregarProducto,
-  obtenerProductoPorId, } from "./utilidades/index.utilidades.js";
+  obtenerProductoPorId, agregarProductoLocal, eliminarProductosPorPrecio} from "./utilidades/index.utilidades.js";
 
 
 console.log('------------PUNTO 1------------');
@@ -56,3 +56,40 @@ const productoModificado = await UPDATEPRODUCTBYID(5, {
 });
 
 //console.log('Producto modificado:', productoModificado);
+
+console.log('------------PUNTO 8------------');
+
+const nuevoProductoLocal = [{
+    id: 999,
+    title: 'Producto',
+    price: 999.99,
+    description: 'Gran producto',
+    category: 'local'
+  },
+  {
+    id: 1000,
+    title: 'Producto',
+    price: 30,
+    description: 'Gran producto x2',
+    category: 'local'
+  },
+  {
+    id: 1001,
+    title: 'Producto',
+    price: 24,
+    description: 'Gran producto x3',
+    category: 'local'
+  },
+  {
+    id: 1002,
+    title: 'Producto',
+    price: 700,
+    description: 'Gran producto x4',
+    category: 'local'
+  }];
+await agregarProductoLocal(nuevoProductoLocal);
+
+console.log('------------PUNTO 9------------');
+
+const precioMaximo = 100;
+await eliminarProductosPorPrecio(precioMaximo);
